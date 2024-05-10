@@ -5,7 +5,6 @@ const Root = () => {
   return (
     <>
       <header className='absolute left-0 top-0 z-10 w-full'>
-        {' '}
         <Navbar />
       </header>
       <Outlet />
