@@ -1,4 +1,3 @@
-import { Button, ButtonGroup } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
@@ -18,18 +17,14 @@ const Navbar = () => {
         <img className='w-12' src='/logo.png' alt='' />
         <span className='text-2xl font-semibold uppercase'>Dream Stay</span>
       </NavLink>
-      <ButtonGroup gap={'4'}>
-        <Button
-          variant={'ghost'}
-          _hover={{ color: '#000000', bg: '#ffffff' }}
-          color={'#ffffff'}
-        >
+      <div>
+        <button>
           <NavLink to={'/login'}>Login</NavLink>
-        </Button>
-        <Button>
+        </button>
+        <button>
           <NavLink to={'/register'}>Register</NavLink>
-        </Button>
-      </ButtonGroup>
+        </button>
+      </div>
     </div>
   );
 };
