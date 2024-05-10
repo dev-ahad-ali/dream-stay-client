@@ -21,12 +21,12 @@ const Navbar = () => {
         <span className='text-2xl font-semibold uppercase'>Dream Stay</span>
       </NavLink>
       <div className='flex items-center gap-4'>
-        <button className='btn'>
-          <NavLink to={'/login'}>Login</NavLink>
-        </button>
-        <button className='btn'>
-          <NavLink to={'/register'}>Register</NavLink>
-        </button>
+        <NavLink className='btn' to={'/login'}>
+          Login
+        </NavLink>
+        <NavLink className='btn' to={'/register'}>
+          Register
+        </NavLink>
       </div>
     </div>
   );
