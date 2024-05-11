@@ -1,6 +1,64 @@
+import { toast } from 'react-toastify';
 import loginImg from '../assets/img/login-img.jpg';
+import useAuth from '../Hooks/useAuth';
+import { useForm } from 'react-hook-form';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
+  const { signInUser, setLoading, googleSignIn } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || '/';
+  const [showPassword, setShowPassword] = useState(false);
+  const [loginError, setLoginError] = useState('');
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const { Email, Password } = data;
+
+    // Login user
+    signInUser(Email, Password)
+      .then((result) => {
+        if (result.user) {
+          toast.success('Login successfully');
+          if (result.user) {
+            navigate(from);
+          }
+        }
+      })
+      .catch(() => {
+        setLoading(false);
+        setLoginError(
+          'Please check if you have entered a valid email or password',
+        );
+      });
+  };
+
+  // Social login
+  const handleSocialLogin = (socialProvider) => {
+    socialProvider()
+      .then((result) => {
+        if (result.user) {
+          navigate(from);
+        }
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  };
+
+  // Show hide password
+  const handleShow = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className='mt-[120px] flex items-center justify-center pb-8'>
       <div className='mx-auto max-w-7xl px-5'>
@@ -12,7 +70,7 @@ const Login = () => {
             <h2 className='font-ooh-baby my-8 text-center text-6xl font-bold'>
               Login Now
             </h2>
-            <form onSubmit={''} className='mt-20'>
+            <form onSubmit={handleSubmit(onSubmit)} className='mt-20'>
               <div className='mt-4'>
                 <label
                   className='mb-2 block text-sm font-medium text-gray-600 '
@@ -26,7 +84,18 @@ const Login = () => {
                   name='email'
                   className='block w-full rounded-lg border bg-white px-4 py-2 text-gray-700    focus:border-gray-400 focus:outline-none  focus:ring focus:ring-gray-300 focus:ring-opacity-40'
                   type='email'
+                  {...register('Email', {
+                    required: {
+                      value: true,
+                      message: 'Must enter an Email',
+                    },
+                  })}
                 />
+                {errors.Email && (
+                  <p className='text-sm font-semibold text-red-500'>
+                    {errors.Email.message}
+                  </p>
+                )}
               </div>
 
               <div className='mt-4'>
@@ -39,16 +108,41 @@ const Login = () => {
                   </label>
                 </div>
 
-                <input
-                  id='loggingPassword'
-                  autoComplete='current-password'
-                  name='password'
-                  className='block w-full rounded-lg border bg-white px-4 py-2 text-gray-700    focus:border-gray-400 focus:outline-none  focus:ring focus:ring-gray-300 focus:ring-opacity-40'
-                  type='password'
-                />
+                <div className='relative '>
+                  <input
+                    id='loggingPassword'
+                    autoComplete='current-password'
+                    name='password'
+                    className='block w-full rounded-lg border bg-white px-4 py-2 text-gray-700    focus:border-gray-400 focus:outline-none  focus:ring focus:ring-gray-300 focus:ring-opacity-40'
+                    type={showPassword ? 'text' : 'password'}
+                    {...register('Password', {
+                      required: {
+                        value: true,
+                        message: 'Must enter a password',
+                      },
+                    })}
+                  />
+                  <span
+                    className='absolute right-2 top-1/2 -translate-y-1/2 text-xl'
+                    onClick={handleShow}
+                  >
+                    {showPassword ? <FaEye /> : <FaEyeSlash />}
+                  </span>
+                </div>
+                {errors.Password ? (
+                  <p className='font-noto text-sm font-semibold text-red-500'>
+                    {errors.Password.message}
+                  </p>
+                ) : loginError ? (
+                  <p className='font-noto text-sm font-semibold text-red-500'>
+                    {loginError}
+                  </p>
+                ) : (
+                  <></>
+                )}
               </div>
               <div
-                onClick={''}
+                onClick={() => handleSocialLogin(googleSignIn)}
                 className='mt-4 flex transform cursor-pointer items-center justify-center rounded-lg border bg-green-100 text-gray-600 transition-colors duration-300 hover:bg-gray-300'
               >
                 <div className='px-4 py-2'>
@@ -85,6 +179,15 @@ const Login = () => {
                 </button>
               </div>
             </form>
+            <div className='mt-12 flex items-center gap-4'>
+              <span className='h-[2px] w-1/2 bg-black'></span>
+              <Link
+                to={'/register'}
+                className='font-bold text-teal-600 hover:underline'
+              >
+                {`<`} Create New Account {`>`}
+              </Link>
+            </div>
           </div>
         </div>
       </div>
