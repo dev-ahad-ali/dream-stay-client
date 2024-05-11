@@ -1,0 +1,29 @@
+[
+  {
+    "room_name": "Double Room",
+    "description": "The south-facing aspect affords unimpeded views of the Alps. Measuring 42 square metres, with traditional Alpine woods, warm fireplaces, and natural-stone touches.",
+    "size": 25,
+    "price": 127,
+    "available": true,
+    "image": "https://i.ibb.co/nMPTKnC/room-1.jpg",
+    "offers": 32
+  },
+  {
+    "room_name": "Prestige Suite",
+    "description": "The south-facing aspect affords unimpeded views of the Alps. Measuring 42 square metres, with traditional Alpine woods, warm fireplaces, and natural-stone touches.",
+    "size": 100,
+    "price": 200,
+    "available": true,
+    "image": "https://i.ibb.co/Jv5WDNk/room-2.jpg",
+    "offers": 20
+  },
+  {
+    "room_name": "Premier Room",
+    "description": "The south-facing aspect affords unimpeded views of the Alps. Measuring 42 square metres, with traditional Alpine woods, warm fireplaces, and natural-stone touches.",
+    "size": 30,
+    "price": 100,
+    "available": true,
+    "image": "https://i.ibb.co/vmmQyqS/room-3.jpg",
+    "offers": 0
+  }
+]
