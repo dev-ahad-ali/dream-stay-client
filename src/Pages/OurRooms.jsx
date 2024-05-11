@@ -2,22 +2,27 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { url } from '../Utils/url';
 import { ImMenu2 } from 'react-icons/im';
+import RoomCard from '../Components/Card/RoomCard';
 
 const OurRooms = () => {
   const [rooms, setRooms] = useState([]);
-  console.log(rooms);
   const [maxRange, setMaxRange] = useState(0);
   const [minRange, setMinRange] = useState(0);
 
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get(
-        `${url}/allRooms?maxRange=${maxRange}&minRange=${minRange}`,
-      );
-      setRooms(data);
+      try {
+        const { data } = await axios.get(
+          `${url}/allRooms?maxRange=${maxRange}&minRange=${minRange}`,
+        );
+        setRooms(data);
+      } catch {
+        (error) => console.log(error);
+      }
     };
     getData();
   }, [maxRange, minRange]);
+
   return (
     <div>
       <h2 className='text-2xl'>our rooms</h2>
@@ -26,9 +31,9 @@ const OurRooms = () => {
           <div
             tabIndex={0}
             role='button'
-            className='btn btn-outline m-1 dark:text-white'
+            className='btn btn-outline m-1 bg-gray-700 dark:text-white'
           >
-            Sort By Customizability <ImMenu2 className='text-xl' />
+            Sort By Price <ImMenu2 className='text-xl' />
           </div>
           <ul
             tabIndex={0}
@@ -70,9 +75,11 @@ const OurRooms = () => {
           </ul>
         </div>
       </div>
-      {rooms.map((room) => (
-        <p key={room?._id}>{room?.room_name}</p>
-      ))}
+      <div className='grid grid-cols-3'>
+        {rooms.map((room) => (
+          <RoomCard key={room?._id} room={room}></RoomCard>
+        ))}
+      </div>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import Login from '../Pages/Login';
 import Register from '../Pages/Register';
 import OurRooms from '../Pages/OurRooms';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import RoomDetails from '../Pages/RoomDetails';
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <OurRooms />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/roomDetails/:_id',
+        element: (
+          <PrivateRoute>
+            <RoomDetails />
           </PrivateRoute>
         ),
       },
