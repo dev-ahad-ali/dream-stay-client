@@ -13,7 +13,7 @@ const OurRooms = () => {
     const getData = async () => {
       try {
         const { data } = await axios.get(
-          `${url}/allRooms?maxRange=${maxRange}&minRange=${minRange}`,
+          `${url}/rooms?maxRange=${maxRange}&minRange=${minRange}`,
         );
         setRooms(data);
       } catch {

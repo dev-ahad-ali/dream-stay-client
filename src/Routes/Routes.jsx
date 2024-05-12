@@ -6,6 +6,7 @@ import Register from '../Pages/Register';
 import OurRooms from '../Pages/OurRooms';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import RoomDetails from '../Pages/RoomDetails';
+import { url } from '../Utils/url';
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,7 @@ export const router = createBrowserRouter([
             <RoomDetails />
           </PrivateRoute>
         ),
+        loader: ({ params }) => fetch(`${url}/rooms/${params._id}`),
       },
     ],
   },
