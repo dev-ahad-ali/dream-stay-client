@@ -5,6 +5,8 @@ import 'react-calendar/dist/Calendar.css';
 import { useState } from 'react';
 import useAuth from '../Hooks/useAuth';
 import axios from 'axios';
+import { url } from '../Utils/url';
+import { toast } from 'react-toastify';
 
 const RoomDetails = () => {
   const room = useLoaderData();
@@ -15,7 +17,7 @@ const RoomDetails = () => {
     e.preventDefault();
   };
 
-  const handleBooking = () => {
+  const handleBooking = async () => {
     const dateString = date.toDateString();
     const booking = {
       room: room,
@@ -23,7 +25,22 @@ const RoomDetails = () => {
       email: user?.email,
       date: dateString,
     };
-    console.log(booking);
+
+    await axios
+      .patch(`${url}/rooms/${room._id}`)
+      .then(async (res) => {
+        if (res.data?.modifiedCount > 0) {
+          await axios
+            .post(`${url}/bookings`, booking)
+            .then((res) => {
+              if (res.data?.insertedId) {
+                toast.success('booking successful');
+              }
+            })
+            .catch((err) => console.log(err));
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -83,9 +100,12 @@ const RoomDetails = () => {
           </form>
         </div>
         <div>
+          <h2>{room?.room_name}</h2>
           <img src={room?.image} alt='' />
         </div>
       </div>
+
+      {/* Booking Modal */}
       <dialog id='booking_modal' className='modal'>
         <div className='modal-box'>
           <form method='dialog'>
