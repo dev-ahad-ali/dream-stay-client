@@ -1,3 +1,4 @@
+import CancelModal from '../Modal/CancelModal';
 import UpdateDateModal from '../Modal/UpdateDateModal';
 
 const MyBookingCard = ({ myBooking, refetch }) => {
@@ -21,12 +22,21 @@ const MyBookingCard = ({ myBooking, refetch }) => {
             >
               Update Date
             </button>
-            <button className='btn btn-error'>Cancel</button>
+            <button
+              onClick={() =>
+                document.getElementById('cancel-modal').showModal()
+              }
+              className='btn btn-error'
+            >
+              Cancel
+            </button>
           </div>
         </div>
       </div>
       {/* Update Modal */}
       <UpdateDateModal myBooking={myBooking} refetch={refetch} />
+      {/* Cancel Modal */}
+      <CancelModal myBooking={myBooking} refetch={refetch} />
     </>
   );
 };

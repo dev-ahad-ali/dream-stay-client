@@ -43,7 +43,7 @@ const Booking = () => {
     };
 
     await axios
-      .patch(`${url}/rooms/${room._id}`)
+      .patch(`${url}/rooms/${room._id}`, { booking: true })
       .then(async (res) => {
         if (res.data?.modifiedCount > 0) {
           await axios
