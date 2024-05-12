@@ -1,4 +1,5 @@
 import CancelModal from '../Modal/CancelModal';
+import ReviewModal from '../Modal/ReviewModal';
 import UpdateDateModal from '../Modal/UpdateDateModal';
 
 const MyBookingCard = ({ myBooking, refetch }) => {
@@ -14,6 +15,14 @@ const MyBookingCard = ({ myBooking, refetch }) => {
           <h2 className='card-title'>{room?.room_name}</h2>
           <p>{myBooking?.date}</p>
           <div className='card-actions justify-end'>
+            <button
+              onClick={() =>
+                document.getElementById('review-modal').showModal()
+              }
+              className='btn btn-primary'
+            >
+              Add Review
+            </button>
             <button
               onClick={() =>
                 document.getElementById('updateDate-modal').showModal()
@@ -37,6 +46,8 @@ const MyBookingCard = ({ myBooking, refetch }) => {
       <UpdateDateModal myBooking={myBooking} refetch={refetch} />
       {/* Cancel Modal */}
       <CancelModal myBooking={myBooking} refetch={refetch} />
+      {/* Review Modal */}
+      <ReviewModal room={room} />
     </>
   );
 };
