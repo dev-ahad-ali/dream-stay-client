@@ -8,6 +8,7 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import RoomDetails from '../Pages/RoomDetails';
 import { url } from '../Utils/url';
 import Booking from '../Pages/Booking';
+import MyBookings from '../Pages/MyBookings';
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: '/booking',
         element: <Booking />,
+      },
+      {
+        path: '/myBookings/:email',
+        element: <MyBookings />,
       },
     ],
   },

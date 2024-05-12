@@ -13,7 +13,7 @@ const Navbar = () => {
             <NavLink to={'/ourRooms'}>Our Rooms</NavLink>
           </li>
           <li>
-            <NavLink>My Bookings</NavLink>
+            <NavLink to={`/myBookings/${user?.email}`}>My Bookings</NavLink>
           </li>
         </ul>
       </nav>
@@ -35,7 +35,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className='dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow'
+              className='menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow'
             >
               <li onClick={logOut}>
                 <a className='text-black'>Logout</a>
