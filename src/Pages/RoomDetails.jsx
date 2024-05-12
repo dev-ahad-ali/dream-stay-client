@@ -6,7 +6,6 @@ import { url } from '../Utils/url';
 const RoomDetails = () => {
   const room = useLoaderData();
   const [reviews, setReviews] = useState([]);
-  console.log(reviews);
 
   useEffect(() => {
     const getReviews = async () => {

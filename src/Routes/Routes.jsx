@@ -30,11 +30,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/ourRooms',
-        element: (
-          <PrivateRoute>
-            <OurRooms />
-          </PrivateRoute>
-        ),
+        element: <OurRooms />,
       },
       {
         path: '/roomDetails/:_id',
@@ -43,11 +39,19 @@ export const router = createBrowserRouter([
       },
       {
         path: '/booking',
-        element: <Booking />,
+        element: (
+          <PrivateRoute>
+            <Booking />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/myBookings/:email',
-        element: <MyBookings />,
+        element: (
+          <PrivateRoute>
+            <MyBookings />
+          </PrivateRoute>
+        ),
       },
     ],
   },
