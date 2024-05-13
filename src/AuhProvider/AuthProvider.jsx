@@ -9,6 +9,8 @@ import {
 } from 'firebase/auth';
 import { createContext, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.config';
+import axios from 'axios';
+import { url } from '../Utils/url';
 
 export const AuthContext = createContext(null);
 // social auth provider
@@ -53,15 +55,24 @@ const AuthProvider = ({ children }) => {
 
   // state check
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        setLoading(false);
-      }
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      const userEmail = currentUser?.email || user?.email;
+      const loggedUser = { email: userEmail };
+      setUser(currentUser);
       setLoading(false);
+
+      if (currentUser) {
+        axios.post(`${url}/jwt`, loggedUser, {
+          withCredentials: true,
+        });
+      } else {
+        axios.get(`${url}/logout`, {
+          withCredentials: true,
+        });
+      }
     });
     return () => unsubscribe();
-  }, []);
+  }, [user?.email]);
 
   const allProperties = {
     createUser,
