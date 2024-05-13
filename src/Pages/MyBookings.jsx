@@ -13,7 +13,9 @@ const MyBookings = () => {
   } = useQuery({
     queryKey: ['myBookings'],
     queryFn: async () => {
-      const { data } = await axios.get(`${url}/bookings/${email}`);
+      const { data } = await axios.get(`${url}/bookings/${email}`, {
+        withCredentials: true,
+      });
       return data;
     },
   });
