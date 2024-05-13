@@ -1,29 +1,146 @@
 [
   {
-    "room_name": "Double Room",
-    "description": "The south-facing aspect affords unimpeded views of the Alps. Measuring 42 square metres, with traditional Alpine woods, warm fireplaces, and natural-stone touches.",
-    "size": 25,
-    "price": 127,
+    "room_name": "Winter Wonderland Suite",
+    "description": "Experience the magic of winter in this luxurious suite. Panoramic views of snow-capped mountains, cozy fireplace, and hot cocoa on arrival.",
+    "size": 120,
+    "price": 250,
     "available": true,
-    "image": "https://i.ibb.co/nMPTKnC/room-1.jpg",
-    "offers": 32
+    "image": "https://i.ibb.co/Vtj64WZ/room-9.jpg",
+    "offers": 15,
+    "facilities": [
+      "Mountain view",
+      "Fireplace",
+      "King-sized bed",
+      "Hot tub",
+      "Complimentary snowshoe rental"
+    ]
   },
   {
-    "room_name": "Prestige Suite",
-    "description": "The south-facing aspect affords unimpeded views of the Alps. Measuring 42 square metres, with traditional Alpine woods, warm fireplaces, and natural-stone touches.",
-    "size": 100,
-    "price": 200,
+    "room_name": "Alpine Chalet",
+    "description": "Escape to your own private chalet nestled in the heart of the Alps. Rustic charm, wood-burning stove, and breathtaking views of snowy peaks.",
+    "size": 80,
+    "price": 180,
     "available": true,
-    "image": "https://i.ibb.co/Jv5WDNk/room-2.jpg",
-    "offers": 20
+    "image": "https://i.ibb.co/0GK3mxh/room-8.jpg",
+    "offers": 10,
+    "facilities": [
+      "Mountain view",
+      "Wood-burning stove",
+      "Queen-sized bed",
+      "Ski storage",
+      "Sauna"
+    ]
   },
   {
-    "room_name": "Premier Room",
-    "description": "The south-facing aspect affords unimpeded views of the Alps. Measuring 42 square metres, with traditional Alpine woods, warm fireplaces, and natural-stone touches.",
-    "size": 30,
+    "room_name": "Frosty Retreat",
+    "description": "Cozy up in this charming retreat surrounded by winter landscapes. Crackling fire, plush blankets, and a selection of board games.",
+    "size": 60,
+    "price": 120,
+    "available": true,
+    "image": "https://i.ibb.co/WGTSM4j/room-7.jpg",
+    "offers": 8,
+    "facilities": [
+      "Forest view",
+      "Gas fireplace",
+      "Double bed",
+      "Board games",
+      "Coffee maker"
+    ]
+  },
+  {
+    "room_name": "Snowflake Cabin",
+    "description": "Embrace the serenity of winter in this secluded cabin. Snowy vistas, hot cider by the fire, and stargazing from your private balcony.",
+    "size": 50,
     "price": 100,
     "available": true,
-    "image": "https://i.ibb.co/vmmQyqS/room-3.jpg",
-    "offers": 0
+    "image": "https://i.ibb.co/LSB92Zg/room-6.jpg",
+    "offers": 5,
+    "facilities": [
+      "Forest view",
+      "Wood-burning fireplace",
+      "Twin beds",
+      "Private balcony",
+      "Tea kettle"
+    ]
+  },
+  {
+    "room_name": "Icicle Lodge",
+    "description": "Discover the beauty of winter in this charming lodge. Crisp mountain air, hearty breakfasts, and guided snowshoe tours.",
+    "size": 100,
+    "price": 220,
+    "available": true,
+    "image": "https://i.ibb.co/ZzP4ds3/room-4.jpg",
+    "offers": 12,
+    "facilities": [
+      "Mountain view",
+      "Gas fireplace",
+      "Queen-sized bed",
+      "Breakfast included",
+      "Guided tours"
+    ]
+  },
+  {
+    "room_name": "Arctic Retreat",
+    "description": "Experience the enchantment of the Arctic in this unique retreat. Northern lights viewing, reindeer sleigh rides, and traditional Sami cuisine.",
+    "size": 150,
+    "price": 300,
+    "available": true,
+    "image": "https://i.ibb.co/m6vn22b/room-5.jpg",
+    "offers": 20,
+    "facilities": [
+      "Arctic view",
+      "Fireplace",
+      "King-sized bed",
+      "Northern lights tours",
+      "Traditional meals"
+    ]
+  },
+  {
+    "room_name": "Snowy Owl Cabin",
+    "description": "Cozy up in this charming cabin nestled among snowy trees. Owl spotting, cross-country skiing, and homemade mulled wine.",
+    "size": 55,
+    "price": 130,
+    "available": true,
+    "image": "https://i.ibb.co/G5P7bZ4/romm24.jpg",
+    "offers": 12,
+    "facilities": [
+      "Forest view",
+      "Wood-burning stove",
+      "Queen-sized bed",
+      "Cross-country ski trails",
+      "Mulled wine"
+    ]
+  },
+  {
+    "room_name": "Frostbitten Lodge",
+    "description": "Warm up in this cozy lodge after a day of winter adventures. Heated floors, hot chocolate bar, and wildlife viewing from your window.",
+    "size": 90,
+    "price": 200,
+    "available": true,
+    "image": "https://i.ibb.co/W3Q7TFf/room-12.jpg",
+    "offers": 18,
+    "facilities": [
+      "Forest view",
+      "Heated floors",
+      "Queen-sized bed",
+      "Hot chocolate bar",
+      "Wildlife viewing"
+    ]
+  },
+  {
+    "room_name": "Snowy Peak Cabin",
+    "description": "Perched high on a snowy peak, this cabin offers unparalleled views. Log fire, sledding hill, and guided winter hikes.",
+    "size": 70,
+    "price": 150,
+    "available": true,
+    "image": "https://i.ibb.co/pv5znnh/romm-12.jpg",
+    "offers": 15,
+    "facilities": [
+      "Mountain view",
+      "Log fire",
+      "Double bed",
+      "Sledding hill",
+      "Guided hikes"
+    ]
   }
 ]
