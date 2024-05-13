@@ -7,21 +7,16 @@ import { useEffect, useState } from 'react';
 const MyBookingCard = ({ myBooking, refetch }) => {
   const { room, date } = myBooking;
   const [disabled, setDisabled] = useState(false);
-  const cancelDate1 = moment(new Date(date)).subtract(2, 'days');
-  const cancelDate2 = moment(new Date(date)).subtract(1, 'days');
-  const lastCancelDate1 = cancelDate1?._d;
-  const lastCancelDate2 = cancelDate2?._d;
+  const cancelDate = moment(new Date(date)).subtract(1, 'days');
+  const lastCancelDate = cancelDate?._d;
 
   useEffect(() => {
-    if (
-      lastCancelDate1.toDateString() === new Date().toDateString() ||
-      lastCancelDate2.toDateString() === new Date().toDateString()
-    ) {
+    if (lastCancelDate.toDateString() === new Date().toDateString()) {
       setDisabled(true);
     } else {
       setDisabled(false);
     }
-  }, [lastCancelDate1, lastCancelDate2]);
+  }, [lastCancelDate]);
 
   return (
     <>
