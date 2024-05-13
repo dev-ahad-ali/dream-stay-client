@@ -41,7 +41,7 @@ const Featured = () => {
           className='mySwiper !ps-[88px]'
         >
           {rooms.slice(0, 6).map((room) => (
-            <SwiperSlide className='!max-w-[415px]' key={room._id}>
+            <SwiperSlide className='!w-[415px]' key={room._id}>
               <FeaturedCard room={room} />
             </SwiperSlide>
           ))}
