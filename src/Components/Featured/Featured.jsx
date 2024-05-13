@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import { FreeMode } from 'swiper/modules';
 import FeaturedCard from '../Card/FeaturedCard';
+import { Link } from 'react-router-dom';
 
 const Featured = () => {
   const [rooms, setRooms] = useState([]);
@@ -24,8 +25,10 @@ const Featured = () => {
   return (
     <div className='py-14'>
       <div className='px-5 text-center'>
-        <h2 className='font-ooh-baby text-[100px] font-bold'>Our Rooms</h2>
-        <p className='mx-auto max-w-4xl text-xl'>
+        <h2 className='font-ooh-baby text-[100px] font-bold leading-none'>
+          Our Rooms
+        </h2>
+        <p className='mx-auto max-w-4xl text-xl mt-4'>
           Get ready to carve through pristine powder and conquer the slopes of
           varying difficulty levels. Our resort boasts a diverse range of ski
           and snowboard trails, ensuring there’s something for everyone, from
@@ -46,6 +49,15 @@ const Featured = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+
+      <div className='mt-12 text-center'>
+        <Link
+          to={'/ourRooms'}
+          className='btn btn-outline rounded-none uppercase'
+        >
+          View All
+        </Link>
       </div>
     </div>
   );
