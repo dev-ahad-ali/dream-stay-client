@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const FeaturedCard = ({ room }) => {
   return (
-    <div className=''>
+    <div>
       <div className='relative'>
         <img className='h-[595px]' src={room?.image} alt='' />
         <span className='absolute left-2 top-3 rounded-none bg-white px-2 py-1 text-sm font-medium uppercase'>

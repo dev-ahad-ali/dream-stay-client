@@ -24,8 +24,10 @@ const OurRooms = () => {
   }, [maxRange, minRange]);
 
   return (
-    <div>
-      <h2 className='text-2xl'>our rooms</h2>
+    <div className='py-12'>
+      <h2 className='mb-12 text-center font-ooh-baby text-2xl text-[100px] capitalize'>
+        our rooms
+      </h2>
       <div className='mt-4 flex justify-center'>
         <div className='dropdown dropdown-end'>
           <div
@@ -37,7 +39,7 @@ const OurRooms = () => {
           </div>
           <ul
             tabIndex={0}
-            className='menu dropdown-content rounded-box bg-base-100 z-[1] w-52 border p-2 shadow-md dark:text-black'
+            className='menu dropdown-content z-[1] w-52 rounded-box border bg-base-100 p-2 shadow-md dark:text-black'
           >
             <li
               onClick={() => {
@@ -75,7 +77,7 @@ const OurRooms = () => {
           </ul>
         </div>
       </div>
-      <div className='grid grid-cols-3'>
+      <div className='mx-auto mt-12 grid max-w-7xl grid-cols-3 gap-6 px-5'>
         {rooms.map((room) => (
           <RoomCard key={room?._id} room={room}></RoomCard>
         ))}
