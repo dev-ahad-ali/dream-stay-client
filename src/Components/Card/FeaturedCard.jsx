@@ -8,6 +8,11 @@ const FeaturedCard = ({ room }) => {
         <span className='absolute left-2 top-3 rounded-none bg-white px-2 py-1 text-sm font-medium uppercase'>
           ${room?.price}/Night
         </span>
+        {room?.offers > 0 && (
+          <div className='mask mask-heart absolute right-3 top-3 grid h-12 w-12 place-items-center bg-green-500 text-white'>
+            <p className=' font-ooh-baby text-xl font-bold'>-{room?.offers}%</p>
+          </div>
+        )}
         {!room?.available && (
           <div className='absolute left-1/2 top-1/2  grid -translate-x-1/2 -translate-y-1/2  bg-red-500 px-6 py-3 text-white'>
             <h2 className='font-ooh-baby text-4xl font-bold uppercase'>
@@ -16,9 +21,9 @@ const FeaturedCard = ({ room }) => {
           </div>
         )}
         <Link
+          className={`${!room?.available && `pointer-events-none`}`}
           to={'/booking'}
           state={room._id}
-          aria-disabled={room?.available ? false : true}
         >
           <button
             disabled={room?.available ? false : true}
