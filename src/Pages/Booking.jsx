@@ -62,8 +62,11 @@ const Booking = () => {
 
   return (
     <>
-      <div className='mx-auto grid max-w-7xl grid-cols-2 gap-5'>
-        <div>
+      <h2 className='mt-12 px-5 text-center font-ooh-baby text-6xl font-bold'>
+        Book Your Room Now
+      </h2>
+      <div className='mx-auto grid max-w-7xl grid-cols-2 gap-5 px-5 py-28'>
+        <div className=' h-[80%] border-2 border-black p-4'>
           <form onSubmit={handleSubmit}>
             <div className='mt-4'>
               <label
@@ -78,7 +81,7 @@ const Booking = () => {
                 id='name'
                 autoComplete='name'
                 name='name'
-                className='block w-full rounded-lg border bg-white px-4 py-2 text-gray-700    focus:border-gray-400 focus:outline-none  focus:ring focus:ring-gray-300 focus:ring-opacity-40'
+                className='block w-full border bg-white px-4 py-2 text-gray-700    focus:border-gray-400 focus:outline-none  focus:ring focus:ring-gray-300 focus:ring-opacity-40'
                 type='text'
               />
             </div>
@@ -95,50 +98,72 @@ const Booking = () => {
                 id='LoggingEmailAddress'
                 autoComplete='email'
                 name='email'
-                className='block w-full rounded-lg border bg-white px-4 py-2 text-gray-700    focus:border-gray-400 focus:outline-none  focus:ring focus:ring-gray-300 focus:ring-opacity-40'
+                className='block w-full  border bg-white px-4 py-2 text-gray-700    focus:border-gray-400 focus:outline-none  focus:ring focus:ring-gray-300 focus:ring-opacity-40'
                 type='email'
               />
             </div>
-            <DatePicker
-              format='dd-MM-yyyy'
-              onChange={(value) => setDate(value)}
-              value={date}
-            />
-            <div className='mt-4'>
+            <div className='mt-6'>
+              <p>Pick A Date</p>
+              <DatePicker
+                className={'mt-2 h-[48px] w-full bg-white'}
+                format='dd-MM-yyyy'
+                onChange={(value) => setDate(value)}
+                value={date}
+              />
+            </div>
+            <div className='mt-40'>
               <input
+                disabled={room?.available ? false : true}
                 onClick={() =>
                   document.getElementById('booking_modal').showModal()
                 }
                 type='submit'
                 value='Book Now'
-                className='btn btn-success'
+                className='btn btn-success w-full rounded-none text-white'
               />
             </div>
           </form>
         </div>
-        <div>
-          <h2>{room?.room_name}</h2>
-          <img src={room?.image} alt='' />
-          <p>Available : {room?.available ? 'Yes' : 'No'}</p>
+        <div className=' relative  max-h-[650px]'>
+          <img className='block h-full w-full' src={room?.image} alt='' />
+          <span className='absolute left-2 top-3 rounded-none bg-white px-2 py-1 text-2xl font-medium uppercase'>
+            ${room?.price}/Night
+          </span>
+          {room?.offers > 0 && (
+            <div className='mask mask-heart absolute right-3 top-3 grid h-16 w-16 place-items-center bg-green-500 text-white'>
+              <p className=' font-ooh-baby text-2xl font-bold'>
+                -{room?.offers}%
+              </p>
+            </div>
+          )}
+          {!room?.available && (
+            <div className='absolute left-1/2 top-1/2  grid -translate-x-1/2 -translate-y-1/2  bg-red-500 px-6 py-3 text-white'>
+              <h2 className='font-ooh-baby text-6xl font-bold uppercase'>
+                Booked
+              </h2>
+            </div>
+          )}
         </div>
       </div>
 
       {/* Booking Modal */}
       <dialog id='booking_modal' className='modal'>
-        <div className='modal-box'>
+        <div className='modal-box rounded-none bg-white/80 backdrop-blur-sm'>
           <form method='dialog'>
             {/* if there is a button in form, it will close the modal */}
             <button className='btn btn-circle btn-ghost btn-sm absolute right-2 top-2 text-red-600'>
               ✕
             </button>
           </form>
-          <h3 className='text-lg font-bold'>{room?.room_name}</h3>
-          <p className='py-4'>Please Confirm Your Booking</p>
+          <h3 className='text-center text-xl font-bold'>
+            ROOM : {room?.room_name}
+          </h3>
+          <p className='py-4 text-center'>Please Confirm Your Booking</p>
           <div className='text-center'>
             <form method='dialog'>
               <button
                 onClick={handleBooking}
-                className='btn btn-success text-white'
+                className='btn btn-success mt-4 rounded-none uppercase text-white'
               >
                 Confirm
               </button>
