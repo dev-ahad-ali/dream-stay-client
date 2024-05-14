@@ -1,10 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { url } from '../../Utils/url';
 import ReviewCard from '../Card/ReviewCard';
+import { EffectCoverflow } from 'swiper/modules';
 
 const DisplayReview = () => {
   const { data: reviews, isLoading } = useQuery({
@@ -26,9 +27,19 @@ const DisplayReview = () => {
       </h2>
       <div className='mt-20'>
         <Swiper
-          slidesPerView={'auto'}
+          effect={'coverflow'}
+          grabCursor={true}
           centeredSlides={true}
-          spaceBetween={30}
+          slidesPerView={'auto'}
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          pagination={true}
+          modules={[EffectCoverflow]}
           className='mySwiper'
         >
           {reviews?.map((review) => (

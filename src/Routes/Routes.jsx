@@ -9,12 +9,13 @@ import RoomDetails from '../Pages/RoomDetails';
 import { url } from '../Utils/url';
 import Booking from '../Pages/Booking';
 import MyBookings from '../Pages/MyBookings';
+import Error from '../Pages/Error';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    errorElement: <div>Error.........</div>,
+    errorElement: <Error />,
     children: [
       {
         path: '/',
