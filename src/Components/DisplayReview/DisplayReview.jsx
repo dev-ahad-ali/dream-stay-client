@@ -5,7 +5,6 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { url } from '../../Utils/url';
 import ReviewCard from '../Card/ReviewCard';
-import { Autoplay } from 'swiper/modules';
 
 const DisplayReview = () => {
   const { data: reviews, isLoading } = useQuery({
@@ -30,11 +29,6 @@ const DisplayReview = () => {
           slidesPerView={'auto'}
           centeredSlides={true}
           spaceBetween={30}
-          loop={true}
-          autoplay={{
-            delay: 1000,
-          }}
-          modules={[Autoplay]}
           className='mySwiper'
         >
           {reviews?.map((review) => (

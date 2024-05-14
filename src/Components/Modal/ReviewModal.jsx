@@ -10,7 +10,7 @@ const ReviewModal = ({ room }) => {
   const postDate = new Date().toDateString();
 
   const handleReview = async () => {
-    const comment = document.getElementById('reviewComment').value;
+    const comment = document.getElementById(`reviewComment${room?._id}`).value;
 
     const review = {
       roomId: room._id,
@@ -28,6 +28,9 @@ const ReviewModal = ({ room }) => {
         }
       })
       .catch((err) => console.log(err));
+
+    setRatings(0);
+    document.getElementById(`review-form${room?._id}`).reset();
   };
 
   return (
@@ -46,10 +49,8 @@ const ReviewModal = ({ room }) => {
         <form
           onSubmit={() => {
             handleReview();
-            document.getElementById('review-form').reset();
-            setRatings(0);
           }}
-          id='review-form'
+          id={`review-form${room?._id}`}
           method='dialog'
         >
           <div>
@@ -96,7 +97,7 @@ const ReviewModal = ({ room }) => {
             <label className='mt-4 block font-bold'>Add A Comment :</label>
             <textarea
               className='h-36 w-full resize-none border-2 p-1 focus:outline-1'
-              id='reviewComment'
+              id={`reviewComment${room?._id}`}
               required={true}
             ></textarea>
           </div>
