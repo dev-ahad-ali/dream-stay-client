@@ -34,9 +34,7 @@ const MyBookingCard = ({ myBooking, refetch }) => {
           </p>
           <div className='flex items-center justify-between gap-2'>
             <button
-              onClick={() =>
-                document.getElementById('review-modal').showModal()
-              }
+              onClick={() => document.getElementById(`review${room._id}`).showModal()}
               className='btn btn-outline btn-success btn-xs rounded-none'
             >
               <MdOutlineReviews />
@@ -44,7 +42,7 @@ const MyBookingCard = ({ myBooking, refetch }) => {
             </button>
             <button
               onClick={() =>
-                document.getElementById('updateDate-modal').showModal()
+                document.getElementById(`update${myBooking._id}`).showModal()
               }
               className='btn btn-outline btn-warning btn-xs rounded-none'
             >
@@ -53,7 +51,7 @@ const MyBookingCard = ({ myBooking, refetch }) => {
             </button>
             <button
               onClick={() =>
-                document.getElementById('cancel-modal').showModal()
+                document.getElementById(`cancel${myBooking._id}`).showModal()
               }
               className={`btn btn-outline btn-error btn-xs rounded-none`}
               disabled={disabled}

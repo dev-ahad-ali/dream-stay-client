@@ -25,7 +25,7 @@ const CancelModal = ({ myBooking, refetch }) => {
   };
 
   return (
-    <dialog id='cancel-modal' className='modal'>
+    <dialog id={`cancel${_id}`} className='modal'>
       <div className='modal-box'>
         <form method='dialog'>
           {/* if there is a button in form, it will close the modal */}
@@ -33,7 +33,7 @@ const CancelModal = ({ myBooking, refetch }) => {
             ✕
           </button>
         </form>
-        <h3 className='text-lg font-bold'>Hello!</h3>
+        <h3 className='text-lg font-bold'>{room?.room_name}</h3>
         <p className='py-4'>Are you sure you wanna cancel booking</p>
         <form method='dialog'>
           <button onClick={handleCancel} className='btn btn-error'>

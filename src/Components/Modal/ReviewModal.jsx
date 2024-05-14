@@ -31,7 +31,7 @@ const ReviewModal = ({ room }) => {
   };
 
   return (
-    <dialog id='review-modal' className='modal'>
+    <dialog id={`review${room._id}`} className='modal'>
       <div className='modal-box  h-[90%] max-w-[700px]'>
         <form method='dialog'>
           {/* if there is a button in form, it will close the modal */}
