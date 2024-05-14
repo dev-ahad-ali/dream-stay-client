@@ -21,7 +21,9 @@ const ReviewModal = ({ room }) => {
     };
 
     await axios
-      .post(`${url}/reviews`, review)
+      .post(`${url}/reviews`, review, {
+        withCredentials: true,
+      })
       .then((res) => {
         if (res.data?.insertedId) {
           toast.success('Review posted successfully');

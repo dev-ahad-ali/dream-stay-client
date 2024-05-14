@@ -13,7 +13,13 @@ const UpdateDateModal = ({ myBooking, refetch }) => {
     const dateString = updateDate.toDateString();
 
     await axios
-      .patch(`${url}/bookings/${myBooking._id}`, { dateString })
+      .patch(
+        `${url}/bookings/${myBooking._id}`,
+        { dateString },
+        {
+          withCredentials: true,
+        },
+      )
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           refetch();

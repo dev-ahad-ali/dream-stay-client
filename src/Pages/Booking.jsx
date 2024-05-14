@@ -45,11 +45,19 @@ const Booking = () => {
     };
 
     await axios
-      .patch(`${url}/rooms/${room._id}`, { booking: true })
+      .patch(
+        `${url}/rooms/${room._id}`,
+        { booking: true },
+        {
+          withCredentials: true,
+        },
+      )
       .then(async (res) => {
         if (res.data?.modifiedCount > 0) {
           await axios
-            .post(`${url}/bookings`, booking)
+            .post(`${url}/bookings`, booking, {
+              withCredentials: true,
+            })
             .then((res) => {
               if (res.data?.insertedId) {
                 toast.success('booking successful');

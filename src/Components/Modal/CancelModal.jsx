@@ -7,11 +7,19 @@ const CancelModal = ({ myBooking, refetch }) => {
 
   const handleCancel = async () => {
     await axios
-      .delete(`${url}/bookings/${_id}`)
+      .delete(`${url}/bookings/${_id}`, {
+        withCredentials: true,
+      })
       .then(async (res) => {
         if (res.data?.deletedCount > 0) {
           await axios
-            .patch(`${url}/rooms/${room._id}`, { booking: false })
+            .patch(
+              `${url}/rooms/${room._id}`,
+              { booking: false },
+              {
+                withCredentials: true,
+              },
+            )
             .then((res) => {
               if (res.data?.modifiedCount > 0) {
                 toast.success('Booking Canceled');
