@@ -3,7 +3,7 @@ import 'leaflet/dist/leaflet.css';
 
 const FindUs = () => {
   return (
-    <section className='mt-32 grid grid-cols-2 items-center gap-8'>
+    <section className='grid grid-cols-2 items-center gap-8 pt-32'>
       <div>
         <MapContainer
           className='min-h-[500px]'

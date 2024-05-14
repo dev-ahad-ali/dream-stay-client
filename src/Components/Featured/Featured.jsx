@@ -23,12 +23,12 @@ const Featured = () => {
     getData();
   }, []);
   return (
-    <div className='py-14'>
+    <div className='py-32'>
       <div className='px-5 text-center'>
         <h2 className='font-ooh-baby text-[100px] font-bold leading-none'>
           Our Rooms
         </h2>
-        <p className='mx-auto max-w-4xl text-xl mt-4'>
+        <p className='mx-auto mt-4 max-w-4xl text-xl'>
           Get ready to carve through pristine powder and conquer the slopes of
           varying difficulty levels. Our resort boasts a diverse range of ski
           and snowboard trails, ensuring there’s something for everyone, from

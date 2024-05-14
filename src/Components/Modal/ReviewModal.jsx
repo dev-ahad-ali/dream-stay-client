@@ -31,7 +31,7 @@ const ReviewModal = ({ room }) => {
   };
 
   return (
-    <dialog id={`review${room._id}`} className='modal'>
+    <dialog id={`review${room?._id}`} className='modal'>
       <div className='modal-box max-w-[700px] rounded-none bg-white/80 backdrop-blur-sm'>
         <form method='dialog'>
           {/* if there is a button in form, it will close the modal */}
@@ -101,7 +101,7 @@ const ReviewModal = ({ room }) => {
             ></textarea>
           </div>
           <p className='text-end'>
-            <span className='font-bold'>Posting Date</span> : {postDate}
+            <span className='font-bold'>Posting Date</span> : {postDate || ''}
           </p>
           <p className='text-end'>
             <span className='font-bold'>User Name:</span> {user?.displayName}

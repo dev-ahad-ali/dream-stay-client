@@ -33,7 +33,7 @@ const MyBookingCard = ({ myBooking, refetch }) => {
           <h2 className='card-title'>{room?.room_name}</h2>
           <p className='text-sm'>{room?.description}</p>
           <p>
-            <span className='font-medium'>Booked For</span> : {date}
+            <span className='font-medium'>Booked For</span> : {date || ''}
           </p>
           <div className='flex items-center justify-between gap-2'>
             <button

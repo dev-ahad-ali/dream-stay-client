@@ -4,6 +4,7 @@ import SpecialOfferModal from '../Components/Modal/SpecialOfferModal';
 import Featured from '../Components/Featured/Featured';
 import NewsLetter from '../Components/NewsLetter/NewsLetter';
 import FindUs from '../Components/FindUs/FindUs';
+import DisplayReview from '../Components/DisplayReview/DisplayReview';
 
 const Home = () => {
   useEffect(() => {
@@ -18,7 +19,7 @@ const Home = () => {
       <FindUs />
       <Featured />
       <NewsLetter />
-
+      <DisplayReview />
       {/* special offer modal */}
       <SpecialOfferModal />
     </>

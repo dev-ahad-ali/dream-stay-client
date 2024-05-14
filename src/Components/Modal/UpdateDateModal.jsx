@@ -23,6 +23,10 @@ const UpdateDateModal = ({ myBooking, refetch }) => {
       .catch((err) => console.log(err));
   };
 
+  if (!date) {
+    return <span className='loading loading-spinner text-warning'></span>;
+  }
+
   return (
     <dialog id={`update${myBooking?._id}`} className='modal'>
       <div className='modal-box h-[75%] rounded-none bg-white/80 backdrop-blur-sm'>

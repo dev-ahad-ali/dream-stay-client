@@ -5,7 +5,7 @@ const ReviewCard = ({ review }) => {
     stars.push(i);
   }
   return (
-    <div className='flex flex-col justify-between  border-2 border-amber-300 bg-white p-4'>
+    <div className='flex min-h-[260px] flex-col  justify-between border-2 border-amber-300 bg-white p-4'>
       <p className=' text-gray-500'>“{comment}”.</p>
       <div className='mt-6'>
         <div className='flex items-center justify-between'>

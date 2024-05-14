@@ -3,7 +3,7 @@ import { ParallaxBanner } from 'react-scroll-parallax';
 const NewsLetter = () => {
   return (
     <ParallaxBanner
-      layers={[{ image: '/newsletterbg.jpg', speed: -30 }]}
+      layers={[{ image: '/newsletterbg.jpg', speed: -40 }]}
       className='aspect-[2/1] max-h-[390px]'
     >
       <div className='absolute inset-0 flex '>
