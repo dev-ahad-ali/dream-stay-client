@@ -2,6 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from '../Components/Navbar/Navbar';
 import { ToastContainer, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from '../Components/Footer/Footer';
 
 const Root = () => {
   const location = useLocation();
@@ -14,6 +15,7 @@ const Root = () => {
         <Navbar />
       </header>
       <Outlet />
+      <Footer />
       <ToastContainer
         position='top-left'
         autoClose={3000}
