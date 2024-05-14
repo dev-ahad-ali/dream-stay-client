@@ -3,6 +3,8 @@ import CancelModal from '../Modal/CancelModal';
 import ReviewModal from '../Modal/ReviewModal';
 import UpdateDateModal from '../Modal/UpdateDateModal';
 import { useEffect, useState } from 'react';
+import { MdOutlineReviews, MdOutlineUpdate } from 'react-icons/md';
+import { FcCancel } from 'react-icons/fc';
 
 const MyBookingCard = ({ myBooking, refetch }) => {
   const { room, date } = myBooking;
@@ -20,37 +22,43 @@ const MyBookingCard = ({ myBooking, refetch }) => {
 
   return (
     <>
-      <div className='card h-[300px] bg-base-100 shadow-xl lg:card-side'>
+      <div className='card card-side max-h-[300px] gap-6 rounded-none bg-white p-4 shadow-xl'>
         <figure>
-          <img src={room?.image} alt='Album' />
+          <img className='rounded-none' src={room?.image} />
         </figure>
-        <div className='card-body'>
+        <div className='card-body p-0'>
           <h2 className='card-title'>{room?.room_name}</h2>
-          <p>{myBooking?.date}</p>
-          <div className='card-actions justify-end'>
+          <p className='text-sm'>{room?.description}</p>
+          <p>
+            <span className='font-medium'>Booked For</span> : {date}
+          </p>
+          <div className='flex items-center justify-between gap-2'>
             <button
               onClick={() =>
                 document.getElementById('review-modal').showModal()
               }
-              className='btn btn-primary'
+              className='btn btn-outline btn-success btn-xs rounded-none'
             >
+              <MdOutlineReviews />
               Add Review
             </button>
             <button
               onClick={() =>
                 document.getElementById('updateDate-modal').showModal()
               }
-              className='btn btn-warning'
+              className='btn btn-outline btn-warning btn-xs rounded-none'
             >
+              <MdOutlineUpdate />
               Update Date
             </button>
             <button
               onClick={() =>
                 document.getElementById('cancel-modal').showModal()
               }
-              className={`btn btn-error`}
+              className={`btn btn-outline btn-error btn-xs rounded-none`}
               disabled={disabled}
             >
+              <FcCancel />
               Cancel
             </button>
           </div>
