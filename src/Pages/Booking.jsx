@@ -157,15 +157,25 @@ const Booking = () => {
               ✕
             </button>
           </form>
-          <h3 className='text-center text-xl font-bold'>
-            ROOM : {room?.room_name}
+          <h2 className='text-center text-2xl font-bold'>Booking Summery</h2>
+          <h3 className=' mt-2 text-lg'>
+            <span className='font-bold'>ROOM </span>: {room?.room_name}
           </h3>
-          <p className='py-4 text-center'>Please Confirm Your Booking</p>
+          <p className='mt-2  text-lg'>
+            <span className='font-bold'>Price</span> : ${room?.price}/night
+          </p>
+          <p className='mt-2  text-lg'>
+            <span className='font-bold'>Booked For</span> :{' '}
+            {date?.toDateString()}
+          </p>
+          <p className='mb-1 mt-4 text-center text-sm'>
+            Please Confirm Your Booking
+          </p>
           <div className='text-center'>
             <form method='dialog'>
               <button
                 onClick={handleBooking}
-                className='btn btn-success mt-4 rounded-none uppercase text-white'
+                className='btn btn-success btn-sm rounded-none uppercase text-white'
               >
                 Confirm
               </button>
