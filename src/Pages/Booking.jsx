@@ -75,11 +75,11 @@ const Booking = () => {
       <Helmet>
         <title>Booking</title>
       </Helmet>
-      <h2 className='mt-12 px-5 text-center font-ooh-baby text-6xl font-bold'>
+      <h2 className='mt-12 px-5 text-center font-ooh-baby text-4xl font-bold md:text-6xl'>
         Book Your Room Now
       </h2>
-      <div className='mx-auto grid max-w-7xl grid-cols-2 gap-5 px-5 py-28'>
-        <div className=' h-[80%] border-2 border-black p-4'>
+      <div className='mx-auto grid max-w-7xl gap-5 px-5 py-4 md:grid-cols-2 md:py-28'>
+        <div className=' order-2 h-[80%] border-2 border-black p-4 md:-order-1'>
           <form onSubmit={handleSubmit}>
             <div className='mt-4'>
               <label
