@@ -10,21 +10,21 @@ const SpecialOfferModal = () => {
             ✕
           </button>
         </form>
-        <div className=' grid h-full grid-cols-2'>
+        <div className=' h-full md:grid md:grid-cols-2'>
           <div
-            className='bg-cover bg-center'
+            className='h-[180px] bg-cover bg-center md:h-auto'
             style={{
               backgroundImage: `url(${modalBg})`,
             }}
           ></div>
           <div>
-            <div className='hero-content mt-12 text-center text-black'>
+            <div className='mt-1 text-center text-black md:hero-content md:mt-12'>
               <div className='max-w-md text-white'>
-                <h1 className='mb-5 text-4xl font-bold uppercase'>
-                  <span className='text-green-600'>40%</span> off this{' '}
+                <h1 className='mb-1 font-bold uppercase md:mb-5 md:text-4xl'>
+                  <span className='text-green-600'>25%</span> off this{' '}
                   <span className='text-blue-600'>winter</span>
                 </h1>
-                <p className='mb-5'>
+                <p className='mb-5 text-xs md:text-base'>
                   Discover a world of luxury and relaxation with our carefully
                   curated hotel offers,
                 </p>
