@@ -3,6 +3,7 @@ import Banner from '../Components/Banner/Banner';
 import SpecialOfferModal from '../Components/Modal/SpecialOfferModal';
 import Featured from '../Components/Featured/Featured';
 import NewsLetter from '../Components/NewsLetter/NewsLetter';
+import FindUs from '../Components/FindUs/FindUs';
 
 const Home = () => {
   useEffect(() => {
@@ -14,6 +15,7 @@ const Home = () => {
       <div>
         <Banner />
       </div>
+      <FindUs />
       <Featured />
       <NewsLetter />
 
