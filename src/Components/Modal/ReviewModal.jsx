@@ -32,21 +32,29 @@ const ReviewModal = ({ room }) => {
 
   return (
     <dialog id={`review${room._id}`} className='modal'>
-      <div className='modal-box  h-[90%] max-w-[700px]'>
+      <div className='modal-box max-w-[700px] rounded-none bg-white/80 backdrop-blur-sm'>
         <form method='dialog'>
           {/* if there is a button in form, it will close the modal */}
-          <button className='btn btn-circle btn-ghost btn-sm absolute right-2 top-2'>
+          <button className='btn btn-circle btn-ghost btn-sm absolute right-2 top-2 text-red-500'>
             ✕
           </button>
         </form>
-        <h3 className='text-lg font-bold'>{room?.room_name}</h3>
-        <form id='review-form' method='dialog'>
-          <p>
-            <span className='font-bold'>Name</span> : {user?.displayName}
-          </p>
+        <h2 className='mb-4 text-center text-4xl font-bold'>Add Your Review</h2>
+        <h3 className='text-lg font-bold'>
+          Room Name : <span className='font-normal'>{room?.room_name}</span>
+        </h3>
+        <form
+          onSubmit={() => {
+            handleReview();
+            document.getElementById('review-form').reset();
+            setRatings(0);
+          }}
+          id='review-form'
+          method='dialog'
+        >
           <div>
-            <p className='font-bold'>Ratings: {ratings}</p>
-            <div className='space-x-2'>
+            <p className='mt-4 font-bold'>Your Ratings: {ratings}</p>
+            <div className='mt-2 space-x-2'>
               <input
                 className='btn btn-circle'
                 type='radio'
@@ -85,21 +93,20 @@ const ReviewModal = ({ room }) => {
             </div>
           </div>
           <div>
-            <label className='block'>Comment</label>
+            <label className='mt-4 block font-bold'>Add A Comment :</label>
             <textarea
-              className='h-36 w-full resize-none border border-black'
+              className='h-36 w-full resize-none border-2 p-1 focus:outline-1'
               id='reviewComment'
+              required={true}
             ></textarea>
           </div>
-          <p className='text-end'>Posting Date : {postDate}</p>
-          <button
-            onClick={() => {
-              handleReview();
-              document.getElementById('review-form').reset();
-              setRatings(0);
-            }}
-            className='btn btn-success'
-          >
+          <p className='text-end'>
+            <span className='font-bold'>Posting Date</span> : {postDate}
+          </p>
+          <p className='text-end'>
+            <span className='font-bold'>User Name:</span> {user?.displayName}
+          </p>
+          <button className='btn btn-success mt-8 w-1/3 rounded-none text-white'>
             Post
           </button>
         </form>
