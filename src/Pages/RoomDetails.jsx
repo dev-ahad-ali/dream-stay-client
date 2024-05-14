@@ -33,7 +33,7 @@ const RoomDetails = () => {
         <title>{room?.room_name}</title>
       </Helmet>
       <div className='mx-auto max-w-7xl px-5 pt-16'>
-        <div className='grid  grid-cols-2 gap-8'>
+        <div className='grid  gap-8 md:grid-cols-2'>
           <div className=' relative  max-h-[650px]'>
             <img className='block h-full w-full' src={room?.image} alt='' />
             <span className='absolute left-2 top-3 rounded-none bg-white px-2 py-1 text-2xl font-medium uppercase'>
@@ -104,7 +104,7 @@ const RoomDetails = () => {
         <div className='divider my-10 font-ooh-baby text-4xl font-bold'>
           Reviews : {reviews?.length}
         </div>
-        <div className='grid grid-cols-2 gap-3'>
+        <div className='grid gap-3 md:grid-cols-2'>
           {reviews ? (
             reviews.map((review) => (
               <ReviewCard key={review._id} review={review} />
