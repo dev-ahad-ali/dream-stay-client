@@ -13,12 +13,15 @@ const MyBookingCard = ({ myBooking, refetch }) => {
   const lastCancelDate = cancelDate?._d;
 
   useEffect(() => {
-    if (lastCancelDate.toDateString() === new Date().toDateString()) {
+    if (
+      lastCancelDate.toDateString() === new Date().toDateString() ||
+      new Date(date).toDateString() === new Date().toDateString()
+    ) {
       setDisabled(true);
     } else {
       setDisabled(false);
     }
-  }, [lastCancelDate]);
+  }, [lastCancelDate, date]);
 
   return (
     <>
@@ -34,7 +37,9 @@ const MyBookingCard = ({ myBooking, refetch }) => {
           </p>
           <div className='flex items-center justify-between gap-2'>
             <button
-              onClick={() => document.getElementById(`review${room._id}`).showModal()}
+              onClick={() =>
+                document.getElementById(`review${room._id}`).showModal()
+              }
               className='btn btn-outline btn-success btn-xs rounded-none'
             >
               <MdOutlineReviews />

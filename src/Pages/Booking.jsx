@@ -7,6 +7,7 @@ import useAuth from '../Hooks/useAuth';
 import axios from 'axios';
 import { url } from '../Utils/url';
 import { toast } from 'react-toastify';
+import moment from 'moment';
 
 const Booking = () => {
   const [room, setRoom] = useState({});
@@ -109,6 +110,7 @@ const Booking = () => {
                 format='dd-MM-yyyy'
                 onChange={(value) => setDate(value)}
                 value={date}
+                minDate={moment().toDate()}
               />
             </div>
             <div className='mt-40'>

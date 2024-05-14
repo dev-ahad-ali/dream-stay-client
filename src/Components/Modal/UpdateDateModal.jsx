@@ -3,6 +3,7 @@ import { useState } from 'react';
 import DatePicker from 'react-date-picker';
 import { url } from '../../Utils/url';
 import { toast } from 'react-toastify';
+import moment from 'moment';
 
 const UpdateDateModal = ({ myBooking, refetch }) => {
   const { room, date } = myBooking;
@@ -36,6 +37,7 @@ const UpdateDateModal = ({ myBooking, refetch }) => {
           format='dd-MM-yyyy'
           onChange={(value) => setUpdateDate(value)}
           value={updateDate}
+          minDate={moment().toDate()}
         />
         <p className='py-4'>Press ESC key or click on ✕ button to close</p>
         <form method='dialog'>
