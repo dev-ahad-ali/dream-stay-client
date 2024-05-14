@@ -25,7 +25,7 @@ const MyBookingCard = ({ myBooking, refetch }) => {
 
   return (
     <>
-      <div className='card card-side max-h-[300px] gap-6 rounded-none bg-white p-4 shadow-xl'>
+      <div className='card gap-6 rounded-none bg-white p-4 shadow-xl lg:card-side lg:max-h-[300px]'>
         <figure>
           <img className='rounded-none' src={room?.image} />
         </figure>

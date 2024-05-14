@@ -31,10 +31,10 @@ const MyBookings = () => {
         <title>My Bookings</title>
       </Helmet>
       <div className='py-16'>
-        <h2 className='mb-16 px-5 text-center font-ooh-baby text-8xl font-bold'>
+        <h2 className='mb-16 px-5 text-center font-ooh-baby text-6xl font-bold md:text-8xl'>
           my bookings
         </h2>
-        <div className='mx-auto grid max-w-7xl grid-cols-2 gap-6 px-5'>
+        <div className='mx-auto grid max-w-7xl gap-6 px-5 md:grid-cols-2'>
           {myBookings.map((myBooking) => (
             <MyBookingCard
               key={myBooking._id}
