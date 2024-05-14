@@ -30,7 +30,7 @@ const OurRooms = () => {
         <title>Dreams Stay | Our Rooms</title>
       </Helmet>
       <div className='py-12'>
-        <h2 className='mb-12 text-center font-ooh-baby text-2xl text-[100px] capitalize'>
+        <h2 className='mb-12 text-center font-ooh-baby text-6xl capitalize md:text-[100px]'>
           our rooms
         </h2>
         <div className='mt-4 flex justify-center'>
@@ -82,7 +82,7 @@ const OurRooms = () => {
             </ul>
           </div>
         </div>
-        <div className='mx-auto mt-12 grid max-w-7xl grid-cols-3 gap-6 px-5'>
+        <div className='mx-auto mt-12 grid max-w-7xl gap-6 px-5 md:grid-cols-2 lg:grid-cols-3'>
           {rooms.map((room) => (
             <RoomCard key={room?._id} room={room}></RoomCard>
           ))}
