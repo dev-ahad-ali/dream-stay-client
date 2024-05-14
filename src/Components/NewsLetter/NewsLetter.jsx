@@ -27,7 +27,7 @@ const NewsLetter = () => {
               </button>
             </div>
             <p className='mt-2 text-xs font-bold uppercase text-white md:mt-8 md:text-lg'>
-              Current available <span className='text-green-600'>40%</span> off
+              Current available <span className='text-green-600'>25%</span> off
               on first room
             </p>
           </div>

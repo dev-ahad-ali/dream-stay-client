@@ -9,6 +9,7 @@ const OurRooms = () => {
   const [rooms, setRooms] = useState([]);
   const [maxRange, setMaxRange] = useState(0);
   const [minRange, setMinRange] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
@@ -17,12 +18,22 @@ const OurRooms = () => {
           `${url}/rooms?maxRange=${maxRange}&minRange=${minRange}`,
         );
         setRooms(data);
+        setLoading(false);
       } catch {
         (error) => console.log(error);
       }
     };
     getData();
   }, [maxRange, minRange]);
+
+  if (loading) {
+    return (
+      <div className='inset-0 z-20 grid min-h-screen w-full place-items-center bg-transparent'>
+        {' '}
+        <span className='loading loading-infinity w-[48px] text-success'></span>
+      </div>
+    );
+  }
 
   return (
     <>

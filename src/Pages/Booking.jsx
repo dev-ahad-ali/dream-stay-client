@@ -13,6 +13,7 @@ import { Helmet } from 'react-helmet';
 const Booking = () => {
   const [room, setRoom] = useState({});
   const [refetch, setRefetch] = useState(true);
+  const [loading, setLoading] = useState(true);
   const location = useLocation();
   const id = location.state;
   const [date, setDate] = useState(new Date());
@@ -24,6 +25,7 @@ const Booking = () => {
         const { data } = await axios.get(`${url}/rooms/${id}`);
         data;
         setRoom(data);
+        setLoading(false);
       } catch {
         (error) => console.log(error);
       }
@@ -69,6 +71,15 @@ const Booking = () => {
       })
       .catch((err) => console.log(err));
   };
+
+  if (loading) {
+    return (
+      <div className='inset-0 z-20 grid min-h-screen w-full place-items-center bg-transparent'>
+        {' '}
+        <span className='loading loading-infinity w-[48px] text-success'></span>
+      </div>
+    );
+  }
 
   return (
     <>

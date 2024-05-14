@@ -22,7 +22,12 @@ const MyBookings = () => {
   });
 
   if (isLoading) {
-    return <span className='loading loading-spinner text-warning'></span>;
+    return (
+      <div className='inset-0 z-20 grid min-h-screen w-full place-items-center bg-transparent'>
+        {' '}
+        <span className='loading loading-infinity w-[48px] text-success'></span>
+      </div>
+    );
   }
 
   return (
