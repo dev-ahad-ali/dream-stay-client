@@ -4,7 +4,11 @@ const FeaturedCard = ({ room }) => {
   return (
     <div>
       <div className='relative'>
-        <img className='h-[595px]' src={room?.image} alt='' />
+        <img
+          className='block h-[400px] md:h-[595px]'
+          src={room?.image}
+          alt=''
+        />
         <span className='absolute left-2 top-3 rounded-none bg-white px-2 py-1 text-sm font-medium uppercase'>
           ${room?.price}/Night
         </span>

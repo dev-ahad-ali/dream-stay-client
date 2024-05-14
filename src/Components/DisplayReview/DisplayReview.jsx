@@ -21,11 +21,11 @@ const DisplayReview = () => {
   }
 
   return (
-    <section className='bg-blue-50 py-32'>
-      <h2 className='px-5 text-center font-ooh-baby text-7xl font-bold'>
+    <section className='bg-blue-50 py-16 md:py-32'>
+      <h2 className='px-5 text-center font-ooh-baby text-4xl font-bold md:text-7xl'>
         What people say About us ....
       </h2>
-      <div className='mt-20'>
+      <div className='mt-10 px-2 md:mt-20 md:px-0'>
         <Swiper
           effect={'coverflow'}
           grabCursor={true}

@@ -23,12 +23,12 @@ const Featured = () => {
     getData();
   }, []);
   return (
-    <div className='py-32'>
+    <div className='py-16 md:py-32'>
       <div className='px-5 text-center'>
-        <h2 className='font-ooh-baby text-[100px] font-bold leading-none'>
+        <h2 className='font-ooh-baby text-6xl font-bold leading-none md:text-[100px]'>
           Our Rooms
         </h2>
-        <p className='mx-auto mt-4 max-w-4xl text-xl'>
+        <p className='mx-auto mt-4 max-w-4xl text-sm md:text-xl'>
           Get ready to carve through pristine powder and conquer the slopes of
           varying difficulty levels. Our resort boasts a diverse range of ski
           and snowboard trails, ensuring there’s something for everyone, from
@@ -41,10 +41,10 @@ const Featured = () => {
           spaceBetween={40}
           freeMode={true}
           modules={[FreeMode]}
-          className='mySwiper !ps-[88px]'
+          className='mySwiper !ps-5 md:!ps-[88px]'
         >
           {rooms.slice(0, 6).map((room) => (
-            <SwiperSlide className='!w-[415px]' key={room._id}>
+            <SwiperSlide className='!w-[210px] md:!w-[415px]' key={room._id}>
               <FeaturedCard room={room} />
             </SwiperSlide>
           ))}

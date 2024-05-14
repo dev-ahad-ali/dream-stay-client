@@ -8,7 +8,7 @@ const Banner = () => {
     >
       <div className='absolute inset-0 flex items-center justify-center bg-black/20'>
         <div>
-          <h1 className='font-ooh-baby text-4xl text-white md:text-[120px]'>
+          <h1 className='font-ooh-baby text-4xl text-white md:text-2xl lg:text-[120px]'>
             Escape to Elegance
           </h1>
         </div>
