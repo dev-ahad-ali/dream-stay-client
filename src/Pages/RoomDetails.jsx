@@ -22,11 +22,7 @@ const RoomDetails = () => {
     };
     getReviews();
   }, [room._id]);
-  {
-    /* <Link to={'/booking'} state={room._id}>
-            <button className='btn btn-warning'>Book This Room</button>
-          </Link> */
-  }
+
   return (
     <>
       <Helmet>

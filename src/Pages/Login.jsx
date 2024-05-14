@@ -65,17 +65,17 @@ const Login = () => {
       <Helmet>
         <title>Login</title>
       </Helmet>
-      <div className='mt-[120px] flex items-center justify-center pb-8'>
+      <div className='mt-12 flex items-center justify-center pb-8'>
         <div className='mx-auto max-w-7xl px-5'>
           <div className='grid-cols-2 gap-20 border-2 border-black p-5 md:grid'>
             <div className='hidden border bg-white p-5 shadow-xl md:block '>
               <img className='h-[500px] w-[400px]' src={loginImg} alt='' />
             </div>
             <div>
-              <h2 className='my-8 text-center font-ooh-baby text-6xl font-bold'>
+              <h2 className='text-center font-ooh-baby text-4xl font-bold md:my-8 md:text-6xl'>
                 Login Now
               </h2>
-              <form onSubmit={handleSubmit(onSubmit)} className='mt-20'>
+              <form onSubmit={handleSubmit(onSubmit)} className='md:mt-20'>
                 <div className='mt-4'>
                   <label
                     className='mb-2 block text-sm font-medium text-gray-600 '
@@ -185,7 +185,7 @@ const Login = () => {
                 </div>
               </form>
               <div className='mt-12 flex items-center gap-4'>
-                <span className='h-[2px] w-1/2 bg-black'></span>
+                <span className='h-[2px] w-[50px] bg-black md:w-1/2'></span>
                 <Link
                   to={'/register'}
                   className='font-bold text-teal-600 hover:underline'

@@ -38,7 +38,7 @@ const Register = () => {
       <Helmet>
         <title>Register</title>
       </Helmet>
-      <div className='mt-[120px] flex items-center justify-center pb-8'>
+      <div className='mt-12 flex items-center justify-center pb-8'>
         <div className='mx-auto max-w-7xl px-5'>
           <div className='border-2 border-black p-5'>
             <h2 className='text-center font-ooh-baby text-4xl font-bold'>
