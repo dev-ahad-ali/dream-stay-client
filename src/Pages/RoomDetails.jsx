@@ -5,6 +5,7 @@ import { url } from '../Utils/url';
 import ReviewCard from '../Components/Card/ReviewCard';
 import { MdOutlineDoneOutline } from 'react-icons/md';
 import { PiArrowElbowRightDown } from 'react-icons/pi';
+import { Helmet } from 'react-helmet';
 
 const RoomDetails = () => {
   const room = useLoaderData();
@@ -28,6 +29,9 @@ const RoomDetails = () => {
   }
   return (
     <>
+      <Helmet>
+        <title>{room?.room_name}</title>
+      </Helmet>
       <div className='mx-auto max-w-7xl px-5 pt-16'>
         <div className='grid  grid-cols-2 gap-8'>
           <div className=' relative  max-h-[650px]'>

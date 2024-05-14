@@ -8,6 +8,7 @@ import axios from 'axios';
 import { url } from '../Utils/url';
 import { toast } from 'react-toastify';
 import moment from 'moment';
+import { Helmet } from 'react-helmet';
 
 const Booking = () => {
   const [room, setRoom] = useState({});
@@ -63,6 +64,9 @@ const Booking = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Booking</title>
+      </Helmet>
       <h2 className='mt-12 px-5 text-center font-ooh-baby text-6xl font-bold'>
         Book Your Room Now
       </h2>

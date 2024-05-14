@@ -5,6 +5,7 @@ import Featured from '../Components/Featured/Featured';
 import NewsLetter from '../Components/NewsLetter/NewsLetter';
 import FindUs from '../Components/FindUs/FindUs';
 import DisplayReview from '../Components/DisplayReview/DisplayReview';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   useEffect(() => {
@@ -13,6 +14,9 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Dream Stay | Home</title>
+      </Helmet>
       <div>
         <Banner />
       </div>
