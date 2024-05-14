@@ -25,23 +25,33 @@ const UpdateDateModal = ({ myBooking, refetch }) => {
 
   return (
     <dialog id={`update${myBooking?._id}`} className='modal'>
-      <div className='modal-box  h-[90%] max-w-[700px]'>
+      <div className='modal-box rounded-none bg-white/80 backdrop-blur-sm'>
         <form method='dialog'>
           {/* if there is a button in form, it will close the modal */}
-          <button className='btn btn-circle btn-ghost btn-sm absolute right-2 top-2'>
+          <button className='btn btn-circle btn-ghost btn-sm absolute right-2 top-2 text-red-500'>
             ✕
           </button>
         </form>
-        <h3 className='text-lg font-bold'>{room?.room_name}</h3>
+        <h3 className='text-center text-xl font-bold'>
+          Updating Booking Date For :
+        </h3>
+        <h3 className='mt-4 text-lg font-medium'>Room : {room?.room_name}</h3>
+        <h3 className='mt-2 text-lg font-medium'>
+          Currently Booked For : {date}
+        </h3>
+        <h3 className='mt-2 text-lg font-medium'>Change The Date</h3>
         <DatePicker
+          className={' h-[40px] w-4/5'}
           format='dd-MM-yyyy'
           onChange={(value) => setUpdateDate(value)}
           value={updateDate}
           minDate={moment().toDate()}
         />
-        <p className='py-4'>Press ESC key or click on ✕ button to close</p>
-        <form method='dialog'>
-          <button onClick={handleDateUpdate} className='btn btn-success'>
+        <form method='dialog' className='mt-24 text-center'>
+          <button
+            onClick={handleDateUpdate}
+            className='btn btn-warning w-1/2 rounded-none text-white'
+          >
             Update
           </button>
         </form>

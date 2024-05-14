@@ -29,7 +29,7 @@ const CancelModal = ({ myBooking, refetch }) => {
       <div className='modal-box rounded-none bg-white/80 backdrop-blur-sm'>
         <form method='dialog'>
           {/* if there is a button in form, it will close the modal */}
-          <button className='btn btn-circle btn-ghost btn-sm absolute right-2 top-2'>
+          <button className='btn btn-circle btn-ghost btn-sm absolute right-2 top-2 text-red-500'>
             ✕
           </button>
         </form>
