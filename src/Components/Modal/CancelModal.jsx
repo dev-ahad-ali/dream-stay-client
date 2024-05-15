@@ -6,6 +6,7 @@ const CancelModal = ({ myBooking, refetch }) => {
   const { room, _id } = myBooking;
 
   const handleCancel = async () => {
+    toast.info('Processing Cancel Request...');
     await axios
       .delete(`${url}/bookings/${_id}`, {
         withCredentials: true,

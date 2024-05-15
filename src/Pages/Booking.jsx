@@ -42,10 +42,10 @@ const Booking = () => {
     const booking = {
       room: room,
       userName: user?.displayName,
-      email: user?.email,
+      email: user?.providerData[0]?.email || user?.email,
       date: dateString,
     };
-
+    toast.info('Processing Booking...');
     await axios
       .patch(
         `${url}/rooms/${room._id}`,
@@ -118,7 +118,7 @@ const Booking = () => {
               </label>
               <input
                 disabled={true}
-                value={user?.email}
+                value={user?.providerData[0]?.email || user?.email}
                 id='LoggingEmailAddress'
                 autoComplete='email'
                 name='email'
