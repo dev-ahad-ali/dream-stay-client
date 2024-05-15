@@ -67,6 +67,7 @@ After Login a user book a room and post a review about the room on the website. 
 
 - A Navbar with all the necessary routes to navigate around the website.
 - A beautiful Parallax banner
+- A pop up modal showing the latest offer.
 - A section to highlight the location of the Hotel.
 - Exhibition section that displays some beautiful rooms in a card showing some key details.
 - A News letter to sign up and get info about hotel and offers.
