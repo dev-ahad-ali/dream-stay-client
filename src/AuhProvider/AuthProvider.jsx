@@ -14,8 +14,8 @@ import { url } from '../Utils/url';
 
 export const AuthContext = createContext(null);
 // social auth provider
-const googleProvider = new GoogleAuthProvider();
-googleProvider.addScope('https://www.googleapis.com/auth/userinfo.email');
+const googleProvider = new GoogleAuthProvider().addScope('email');
+// googleProvider.addScope('https://www.googleapis.com/auth/userinfo.email');
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -56,12 +56,16 @@ const AuthProvider = ({ children }) => {
   // state check
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      const userEmail = currentUser?.email || user?.email;
-      const loggedUser = { email: userEmail };
       setUser(currentUser);
+      const userEmail =
+        currentUser?.providerData[0].email ||
+        user?.providerData[0]?.email ||
+        currentUser?.email ||
+        user?.email;
+      const loggedUser = { email: userEmail };
       setLoading(false);
 
-      if (currentUser) {
+      if (loggedUser) {
         axios.post(`${url}/jwt`, loggedUser, {
           withCredentials: true,
         });
@@ -72,7 +76,7 @@ const AuthProvider = ({ children }) => {
       }
     });
     return () => unsubscribe();
-  }, [user?.email]);
+  }, [user?.email, user?.providerData]);
 
   const allProperties = {
     createUser,

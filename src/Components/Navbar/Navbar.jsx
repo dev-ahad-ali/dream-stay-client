@@ -28,7 +28,7 @@ const Navbar = () => {
                   ? 'text-sm underline md:text-base'
                   : 'text-sm md:text-base'
               }
-              to={`/myBookings/${user?.email}`}
+              to={`/myBookings/${user?.providerData[0]?.email || user?.email}`}
             >
               My Bookings
             </NavLink>

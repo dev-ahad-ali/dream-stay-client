@@ -20,7 +20,6 @@ const MyBookings = () => {
       return data;
     },
   });
-
   if (isLoading) {
     return (
       <div className='inset-0 z-20 grid min-h-screen w-full place-items-center bg-transparent'>
@@ -40,13 +39,19 @@ const MyBookings = () => {
           my bookings
         </h2>
         <div className='mx-auto grid max-w-7xl gap-6 px-5 md:grid-cols-2'>
-          {myBookings.map((myBooking) => (
-            <MyBookingCard
-              key={myBooking._id}
-              refetch={refetch}
-              myBooking={myBooking}
-            />
-          ))}
+          {myBookings ? (
+            <h3 className='py-12 text-center text-2xl font-light '>
+              You have not book any Room yet....
+            </h3>
+          ) : (
+            myBookings?.map((myBooking) => (
+              <MyBookingCard
+                key={myBooking._id}
+                refetch={refetch}
+                myBooking={myBooking}
+              />
+            ))
+          )}
         </div>
       </div>
     </>
