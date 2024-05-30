@@ -6,6 +6,7 @@ import NewsLetter from '../Components/NewsLetter/NewsLetter';
 import FindUs from '../Components/FindUs/FindUs';
 import DisplayReview from '../Components/DisplayReview/DisplayReview';
 import { Helmet } from 'react-helmet';
+import ChooseView from '../Components/ChooseView/ChooseView';
 
 const Home = () => {
   useEffect(() => {
@@ -22,6 +23,7 @@ const Home = () => {
       </div>
       <FindUs />
       <Featured />
+      <ChooseView />
       <NewsLetter />
       <DisplayReview />
       {/* special offer modal */}

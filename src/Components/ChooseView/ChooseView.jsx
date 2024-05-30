@@ -1,9 +1,39 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { url } from '../../Utils/url';
+import ChooseViewTab from './ChooseViewTab';
 
 const ChooseView = () => {
+  const [rooms, setRooms] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await axios.get(`${url}/rooms`);
+        setRooms(data);
+      } catch {
+        (error) => console.log(error);
+      }
+    };
+    getData();
+  }, []);
+
+  const mountainView = rooms.filter((room) =>
+    room.facilities.includes('Mountain view'),
+  );
+
+  const forestView = rooms.filter((room) =>
+    room.facilities.includes('Forest view'),
+  );
+
+  const arcticView = rooms.filter((room) =>
+    room.facilities.includes('Arctic view'),
+  );
+
   return (
-    <section>
+    <section className='pb-16 md:pb-32'>
       <div className='px-5 text-center'>
         <h2 className='font-ooh-baby text-6xl font-bold leading-none md:text-[100px]'>
           Choose Your Favorite View
@@ -14,18 +44,22 @@ const ChooseView = () => {
         </p>
       </div>
 
-      <div className='mt-12'>
+      <div className='mx-auto mt-12 max-w-7xl px-5'>
         <Tabs>
           <TabList>
-            <Tab>Title 1</Tab>
-            <Tab>Title 2</Tab>
+            <Tab>Mountain view</Tab>
+            <Tab>Forest view</Tab>
+            <Tab>Arctic view</Tab>
           </TabList>
 
           <TabPanel>
-            <h2>Any content 1</h2>
+            <ChooseViewTab rooms={mountainView} />
           </TabPanel>
           <TabPanel>
-            <h2>Any content 2</h2>
+            <ChooseViewTab rooms={forestView} />
+          </TabPanel>
+          <TabPanel>
+            <ChooseViewTab rooms={arcticView} />
           </TabPanel>
         </Tabs>
       </div>
