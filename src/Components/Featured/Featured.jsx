@@ -22,6 +22,7 @@ const Featured = () => {
     };
     getData();
   }, []);
+  
   return (
     <div className='py-16 md:py-32'>
       <div className='px-5 text-center'>
